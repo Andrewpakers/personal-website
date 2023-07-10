@@ -25,7 +25,7 @@ function Navbar() {
                     <li className=""><Link className="hover:underline text-lg" href="/content">Content</Link></li>
                     <li tabIndex={0}>
                         <details className="">
-                        <summary className="hover:underline text-lg">Social</summary>
+                        <summary className="hover:underline text-lg focus:outline-none focus-within:outline-none">Social</summary>
                         <ul className="shadow-none rounded-none ">
                             <li className="rounded-none border-solid border-primary border-[3px]"><Link className="hover:underline" href="https://www.linkedin.com/in/andrewpakers/">LinkedIn</Link></li>
                             <li className="rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="hover:underline" href="https://github.com/Andrewpakers/">GitHub</Link></li>
@@ -45,7 +45,7 @@ function Navbar() {
                         <li className="bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="" href="/projects">Projects</Link></li>
                         <li className="bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="" href="/content">Content</Link></li>
                         <li>
-                        <details className="dropdown open:max-w-[calc(100vw-0.1px)]">
+                        <details className="dropdown open:w-[calc(100vw-0.1px)]">
                             <summary id="socialList" className=" marker:bg-base-100 max-w-screen bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]" href="">Social</summary>
                             <ul tabIndex={1} className="p-0 w-screen -translate-x-4">
                                 <li className="bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="" href="https://github.com/Andrewpakers">GitHub</Link></li>
