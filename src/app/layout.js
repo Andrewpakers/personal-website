@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="cake" className='[&>*]:text-base-content' >
       <body className={inter.className + " bg-transparent"}>
         <div className='w-full flex flex-col items-center mx-auto'>
-          {/* <div className='animate-fadeIn w-full flex justify-center border-b-[3px] border-primary'> */}
             <Navbar />
-          {/* </div> */}
           <div className='w-full p-1 flex flex-col items-center'>{children}</div>
         </div>
       </body>

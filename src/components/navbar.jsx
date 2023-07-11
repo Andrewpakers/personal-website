@@ -21,8 +21,6 @@ function Navbar() {
             <div className="navbar-end">
                 <ul className="animate-fadeInRight menu menu-horizontal px-1 hidden sm:flex flex-nowrap">
                     <li className=""><Link className="hover:underline text-lg" href="/blog">Blog</Link></li>
-                    <li className=""><Link className="hover:underline text-lg" href="/projects">Projects</Link></li>
-                    <li className=""><Link className="hover:underline text-lg" href="/content">Content</Link></li>
                     <li tabIndex={0}>
                         <details className="">
                         <summary className="hover:underline text-lg focus:outline-none focus-within:outline-none">Social</summary>
@@ -42,8 +40,6 @@ function Navbar() {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-2 z-[1] bg-base-100 rounded-none
                          p-0 w-screen">
                         <li className="bg-base-100 rounded-none border-solid border-primary border-[3px]"><Link className="active:bg-base-100 " href="/blog">Blog</Link></li>
-                        <li className="bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="" href="/projects">Projects</Link></li>
-                        <li className="bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]"><Link className="" href="/content">Content</Link></li>
                         <li>
                         <details className="dropdown open:w-[calc(100vw-0.1px)]">
                             <summary id="socialList" className=" marker:bg-base-100 max-w-screen bg-base-100 rounded-none border-solid border-primary border-b-[3px] border-x-[3px]" href="">Social</summary>
