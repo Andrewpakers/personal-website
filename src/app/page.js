@@ -20,7 +20,7 @@ export async function generateMetadata() {
       openGraph: {
           title: "Andrew Akers",
           description: "Andrew Akers is a a writer, tech enthusiast, programmer, product marketer and creator of content and side projects.",
-          // url: 'https://nextjs.org',
+          url: '/',
           siteName: 'Andrew Akers',
           images: [
           {
@@ -46,7 +46,7 @@ export default async function Home() {
       return (
           <div className=" mt-10 max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] h-[480px] w-96 p-6 max-w-96" key={index}>
               <a href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
-                  <Image src={post?.shareImg} alt={post?.title} width={280} height={280} />
+                  <Image src={post?.shareImg} alt={post?.title} width={280} height={280} className='rounded-[10px]' />
                   <div className="flex flex-col">
                       <span className=" font-bold">{post?.title}</span>
                       <span className="text-sm font-light">{post?.date}</span>

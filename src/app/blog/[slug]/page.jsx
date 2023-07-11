@@ -15,7 +15,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       openGraph: {
         title: post?.title,
         description: post?.description,
-        // url: 'https://nextjs.org',
+        url: '/blog/' + post?.slug,
         siteName: 'Andrew Akers',
         images: [
           {
@@ -45,7 +45,7 @@ export default async function PostPage({
   return (
     <div className='max-w-[1000px] prose prose-p:my-2 dark:prose-invert flex flex-col'>
         <h1 className='mt-3 mb-3'>{post?.title}</h1>
-        <div className='flex gap-3 items-center'>
+        <div className='flex gap-6 items-center'>
             <Image className='rounded-full' width={80} src={profilePic} alt='profile pic'/>
             <div className='flex flex-col'>
                 <span className='text-md font-light'>{post?.date}</span>
