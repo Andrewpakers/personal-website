@@ -1,5 +1,6 @@
 import getPosts from "@/lib/posts";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function generateMetadata() {
     return {
@@ -33,7 +34,7 @@ export default async function Blog() {
     const renderedPosts = posts.map((post, index) => {
         return (
             <div className=" mt-10 max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] h-[480px] w-96 p-6 max-w-96" key={index}>
-                <a href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
+                <Link href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
                     <Image src={post?.shareImg} alt={post?.title} width={280} height={280} className='rounded-[10px]' />
                     <div className="flex flex-col">
                         <span className=" font-bold">{post?.title}</span>
@@ -41,7 +42,7 @@ export default async function Blog() {
                         <span className="text-sm font-light">{post?.author}</span>
                     </div>
                     <span className="">{post?.description}</span>
-                </a>
+                </Link>
             </div>
         );
     });

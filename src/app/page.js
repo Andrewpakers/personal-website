@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import profilePic from '../assets/images/profile.jpeg'
 import chtraiPic from '../assets/images/chtrai4.png'
 import SSEPic from '../assets/images/SSE_Assessment.png'
@@ -45,7 +46,7 @@ export default async function Home() {
   const renderedPosts = posts.map((post, index) => {
       return (
           <div className=" mt-10 max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] h-[480px] w-96 p-6 max-w-96" key={index}>
-              <a href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
+              <Link href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
                   <Image src={post?.shareImg} alt={post?.title} width={280} height={280} className='rounded-[10px]' />
                   <div className="flex flex-col">
                       <span className=" font-bold">{post?.title}</span>
@@ -53,7 +54,7 @@ export default async function Home() {
                       <span className="text-sm font-light">{post?.author}</span>
                   </div>
                   <span className="">{post?.description}</span>
-              </a>
+              </Link>
           </div>
       );
   });
@@ -88,14 +89,14 @@ export default async function Home() {
               <svg className='rounded-[10px] max-sm:w-[340px] w-96 h-[480px] z-0 absolute top-[17px] left-[15px]' fill="currentColor" role="img" aria-hidden="true" ><title>Diagonal A Dense</title><pattern id="DiagonalADense-pattern-10" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="currentColor"></rect><rect x="2" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="3" width="1" height="1" fill="currentColor"></rect><rect y="3" width="1" height="1" fill="currentColor"></rect><rect x="3" width="1" height="1" fill="currentColor"></rect><rect x="3" y="1" width="1" height="1" fill="currentColor"></rect><rect x="2" y="1" width="1" height="1" fill="currentColor"></rect></pattern><rect width="100%" height="100%" fill="url(#DiagonalADense-pattern-10)"></rect></svg>
               <div className={inconsolata.className + ' ' + ' max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] p-6 ' +
               'h-[480px] w-96 max-w-96 relative z-1 flex flex-col justify-center items-center'}>
-                <a href="https://chtr-ai.web.app/">
+                <Link href="https://chtr-ai.web.app/">
                   <h2 className={inconsolata.className +
                     ' text-2xl font-bold border-solid border-primary border-[3px] ' +
                     'rounded-[10px] px-8 py-3 text-3xl bg-base-100 ' +
                     'shadow-[8px_8px_0] shadow-primary hover:bg-neutral' }>
                       chtr.ai
                   </h2>
-                </a>
+                </Link>
                 <p className='text-xl mt-12'>Built as a small proof of concept, Chtr.ai is chatroom app with a twist — all chatrooms include AI participants. Powered by OpenAI&apos;s ChatGPT, each bot has a personality and background, and they converse with eachother and human participants seamlessly.</p>
               </div>
             </div>

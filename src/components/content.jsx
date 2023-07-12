@@ -17,7 +17,7 @@ export default function Content({ image, imgAlt = "", link, linkText = "View", t
             <button
             className={"btn btn-neutral " + btnClassName} 
              >
-                <a href={link}>{linkText}</a>
+                <Link href={link}>{linkText}</Link>
             </button>
         </div>
     );
