@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/navbar'
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,7 +37,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className + " bg-transparent"}>
         <div className='w-full flex flex-col items-center mx-auto'>
             <Navbar />
-          <div className='w-full p-1 flex flex-col items-center'>{children}</div>
+          <div className='w-full p-1 flex flex-col items-center'>
+            {children}
+            <Analytics />
+          </div>
         </div>
       </body>
     </html>
