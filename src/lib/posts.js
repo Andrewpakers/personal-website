@@ -9,7 +9,8 @@ import { mdxComponents } from '@/app/blog/[slug]/components/markdownComponents'
 // this means getPosts() will only be called once per page build, even though we may call it multiple times
 // when rendering the page.
 export const getPosts = cache(async () => {
-  const posts = await fs.readdir('./src/posts/')
+//   const posts = await fs.readdir('./src/posts/')
+const posts = await fs.readdir(path.resolve(process.cwd(), 'src', 'posts'));
 
   return Promise.all(
     posts
