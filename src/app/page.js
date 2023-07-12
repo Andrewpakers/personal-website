@@ -84,6 +84,7 @@ export default async function Home() {
           <Item
           image={chtraiPic}
           imgAlt='Screenshot of chtr-ai, a AI-powered chatroom proof of concept built by Andrew Akers'
+          link={'https://chtr-ai.web.app/'}
           >
             <div className=' relative'>
               <svg className='rounded-[10px] max-sm:w-[340px] w-96 h-[480px] z-0 absolute top-[17px] left-[15px]' fill="currentColor" role="img" aria-hidden="true" ><title>Diagonal A Dense</title><pattern id="DiagonalADense-pattern-10" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="currentColor"></rect><rect x="2" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="3" width="1" height="1" fill="currentColor"></rect><rect y="3" width="1" height="1" fill="currentColor"></rect><rect x="3" width="1" height="1" fill="currentColor"></rect><rect x="3" y="1" width="1" height="1" fill="currentColor"></rect><rect x="2" y="1" width="1" height="1" fill="currentColor"></rect></pattern><rect width="100%" height="100%" fill="url(#DiagonalADense-pattern-10)"></rect></svg>
