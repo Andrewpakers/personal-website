@@ -1,0 +1,47 @@
+---
+title: 'ChatGPT Code Interpreter is a Code Injection Machine'
+date: '2023-07-13'
+slug: 'chatgpt-code-interpreter-is-a-code-injection-machine'
+author: 'Andrew Akers'
+shareImg: '/posts/images/code-interpreter/code-interpreter-1.jpg'
+description: "Let's break ChatGPT becuase I don't know Python"
+---
+I was listening to the [Latent Space](https://open.substack.com/pub/swyx/p/code-interpreter?utm_campaign=post&utm_medium=web) podcast today, where they spent 30 minutes discussing how to “jailbreak” ChatGPT’s new Code Interpreter model. For those who don’t know or who can’t keep up with all of the AI news, [Code Interpreter](https://www.searchenginejournal.com/code-interpreter-chatgpt-plus/490980/) is a new model from OpenAI, the creators of ChatGPT, which is for handling code and files. It does some amazing things, such as [data analysis](https://www.oneusefulthing.org/p/what-ai-can-do-with-a-toolbox-getting) or generating code that it then tests iteratively until it works as intended. It’s incredibly fun to work with, [and you should check it out.](https://chat.openai.com/) But like most private language models, there are a lot of guard rails, which are meant to prevent everything from offensive outputs to insecure actions.
+
+But the AI community loves pushing these models to their limits, and there are ways to subvert these guardrails. “Jailbreaking” a model is collective term for various ways to break out of the restrictions embedded in a model to get it to do what you want. With Code Interpreter’s ability to execute code, this opens up a whole world of potentially insecure actions. Let’s dig in.
+
+## Let’s make Code Interpreter use JavaScript
+
+Code Interpreter is mostly limited to working with Python code at the moment. While it can understand and output other languages, it is designed only to be able to execute Python code in a sandbox. Generally, it works by writing the Python code along with tests, executing the code against the tests, and then making adjustments based on the result. It does this over and over until the code passes all the tests. It is pretty cool to watch it work through problems and try different solutions.
+
+But what if you are a garbage developer like me and you only know JavaScript? Currently, Code Interpreter doesn’t support JavaScript. What if we take the Deno runtime binary, zip it, and upload it. Maybe… it will work? Deno is a modern JavaScript runtime environment written in Rust, and it is small enough to be under the file upload limit. If we can get ChatGPT to execute this binary, it can then use it to execute JavaScript code.
+
+I tried to upload it to ChatGPT and instruct it to execute the binary. This is its response:
+<ImageCenter src={'/posts/images/code-interpreter/codeInt3.png'} alt={'Screenshot from ChatGPT that says "I\'m sorry, but I\'m not able to execute binary files directly. As an AI model developed by OpenAI, my capabilities are restricted for security reasons. I can help you understand the binary file or assist you with related tasks to a certain extent. Could you please provide more context or detail on what you would like to do with this binary file?"'} height='500' width='800' />
+For security reasons, ChatGPT won’t execute any old binary. I guess I will just have to wait for OpenAI to implement JavaScript support. Or I could ask a little nicer:
+<ImageCenter src={'/posts/images/code-interpreter/code-interpreter-1.jpg'} alt={'A screenshot that shows the user convincing the ChatGPT code interpreter to execute a binary after it said it wasn\'t permitted to. The actual malicious prompt is censored. ChatGPT then executes the binary.'} height='500' width='800' />
+<ImageCenter src={'/posts/images/code-interpreter/codeInt4.png'} alt={'A screenshot showing ChatGPT executing the Deno runtime binary and then successfully querying the version. It says: "The execution of the Deno binary with the * - - version* argument was successful. Here is the output:sql [ Copy code deno 1.33.1 (release, X86_64-unknown-11nux-gnu) v8 11.4.183.1 typescript 5.0.3 Please let me know if there is anything else you would like to do."'} height='500' width='800' />
+This is called malicious prompt engineering, and I will explain it a little more later in the article. For now, let’s try to use Deno to do some JavaScript development.
+<ImageCenter src={'/posts/images/code-interpreter/codeInt6.png'} alt={'A screenshot show ChatGPT executing a Hellow World program in Javascript. It says "I have written a "Hello World!" Deno program. The program is saved as \'hello_world.ts Now, let\'s execute the program using the Deno binary. Please bear with me for a moment."'} height='500' width='800' />
+<br/>
+That’s how you break an AI model.
+
+## What just happened?
+
+I used a little trick called malicious prompt engineering. I’m not going to share the exact prompt I used. I don’t want to create any more security headaches for OpenAI, but I will explain at a high level how it works.
+
+AI is a black box. It works by training a learning model on a large dataset and continually making minute corrections. Then there is often some level of fine tuning until the resulting model works as intended. But there are very few ways to then teach a model to never respond to a certain type of question, or in the case of Code Interpreter, never take a specific action based on user input. Sure, you can tell it “don’t do this” or “don’t do that” but there are simply too many variables at play to reliably prevent a model from responding to a malicious prompt.
+
+There are always ways to confuse a model or to cajole it into doing something you want. In short, an AI model should always be considered to be a malicious user. 
+
+## What do we do about it?
+
+First, let’s talk about what we shouldn’t do. We shouldn’t rely on “making the model more secure.” [Simon Willison](https://til.simonwillison.net/) said it best:
+<ImageCenter src={'/posts/images/code-interpreter/codeInt7.jpg'} alt={'AI engineer Simon Willison\'s tweet that says "The hardest problem in computer science is convincing Al enthusiasts that they can\'t solve prompt injection vulnerabilities using more Al"'} height='500' width='650' />
+He’s talking about prompt injection here, which is a related problem that requires malicious prompt engineering, but the point stands. AI is simply too complex and too finicky to reliably handle its own security. Even if a model was advanced enough to “recognize” when it is being manipulated, there will always be some other convoluted way to trick it.
+
+Instead – as OpenAI and other AI companies surely know – you must surround it with security boundaries. ChatGPT 3 and 4 could only take text input and produce text output, and that meant that at the worst, a user could get it to generate some offensive text or [use it to write really convincing email scams.](https://www.wired.com/story/large-language-model-phishing-scams/)
+
+The conversation changes entirely, however, when we start hooking systems up to these models. Code Interpreter is connected to a sandbox – [probably a locked down Kubernetes container](https://openai.com/research/scaling-kubernetes-to-7500-nodes) – and can execute code. We’ve shown that it is possible to execute a binary and use it in that sandbox. Is that a security risk? Honestly, I don’t know enough about the sandbox environment to say. However, there are [many](https://www.crowdstrike.com/blog/cve-2022-0185-kubernetes-container-escape-using-linux-kernel-exploit/) [different](https://securitylabs.datadoghq.com/articles/dirty-pipe-container-escape-poc/) [ways](https://www.cybereason.com/blog/container-escape-all-you-need-is-cap-capabilities) to escape containers.
+
+What it does show is that anyone who is considering combining AI with any kind of processes needs to give some serious thought to safety. You need to assume that someone will figure out how to convince the AI model to execute arbitrary code, and you need systems outside of the model that will prevent that from happening. Otherwise, you are going to have a bad day.

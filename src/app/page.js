@@ -66,7 +66,7 @@ export default async function Home() {
           <span className={`sm:text-3xl sm:mt-4 inline-block text-xl max-w-[600px]`}>I&apos;m a writer, tech enthusiast, programmer, product marketer and creator of content and side projects.</span>
           <div className=' flex flex-wrap justify-start mt-5 gap-8 animate-fadeInLeft'>
             <Link href="mailto:andrew@andrewakers.dev">
-              <button className=' btn-md sm:btn-lg text-lg px-7 rounded-[10px] btn-ghost hover:btn-primary border-solid border-gray-400 border-[3px]'>
+              <button className=' shadow-[-5px_5px_0] shadow-base-100 hover:shadow-primary btn-md sm:btn-lg text-lg px-7 rounded-[10px] btn-ghost hover:btn-primary border-solid border-gray-400 border-[3px] '>
                 Email
               </button>
             </Link>
@@ -183,7 +183,7 @@ export default async function Home() {
       link='/blog'
       colorValue='bg-secondary'
       className=''>
-         <div className="flex flex-wrap">
+         <div className="flex flex-wrap gap-10 ml-6">
           {renderedPosts}
         </div>
       </Blade>

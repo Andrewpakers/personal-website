@@ -43,7 +43,7 @@ export default async function PostPage({
   if (!post) return notFound()
 
   return (
-    <div className='max-w-[1000px] prose prose-p:my-2 dark:prose-invert flex flex-col'>
+    <div className=' mb-48 max-w-[1000px] prose prose-p:my-2 dark:prose-invert flex flex-col'>
         <h1 className='mt-3 mb-3'>{post?.title}</h1>
         <div className='flex gap-6 items-center'>
             <Image className='rounded-full' width={80} src={profilePic} alt='profile pic'/>
