@@ -70,16 +70,16 @@ export default async function Home() {
                 Email
               </button>
             </Link>
-            <Link href="https://www.linkedin.com/in/andrewpakers/">
+            <a href="https://www.linkedin.com/in/andrewpakers/">
               <button className=' btn-md sm:btn-lg text-lg px-7 rounded-[10px] btn-neutral hover:btn-primary '>
                 LinkedIn
               </button>
-            </Link>
+            </a>
           </div>
         </div>
         <div className=' rounded-[10px] xl max-sm:ml-2 max-sm:max-h-[300px] max-md:self-center max-h-[400px] max-w-[400px] border-solid border-primary border-[3px]
           aspect-square mx-auto mt-10 sm:mt-40 animate-fadeInRight shadow-[15px_17px_0] shadow-neutral'>
-            <Link href={"https://www.linkedin.com/in/andrewpakers/"}>
+            <a href={"https://www.linkedin.com/in/andrewpakers/"}>
               <Image
                 className='rounded-[7px]'
                 src={profilePic}
@@ -87,7 +87,7 @@ export default async function Home() {
                 height={400}
                 alt='Andrew Akers. Blonde hair, wearing sunglasses, looking back at the camera from on top of a mountain.'
               />
-            </Link>
+            </a>
         </div>
       </div>
       <Blade 
@@ -104,14 +104,14 @@ export default async function Home() {
               <svg className='rounded-[10px] max-sm:w-[340px] w-96 h-[480px] z-0 absolute top-[17px] left-[15px]' fill="currentColor" role="img" aria-hidden="true" ><title>Diagonal A Dense</title><pattern id="DiagonalADense-pattern-10" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="currentColor"></rect><rect x="2" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="3" width="1" height="1" fill="currentColor"></rect><rect y="3" width="1" height="1" fill="currentColor"></rect><rect x="3" width="1" height="1" fill="currentColor"></rect><rect x="3" y="1" width="1" height="1" fill="currentColor"></rect><rect x="2" y="1" width="1" height="1" fill="currentColor"></rect></pattern><rect width="100%" height="100%" fill="url(#DiagonalADense-pattern-10)"></rect></svg>
               <div className={inconsolata.className + ' ' + ' max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] p-6 ' +
               'h-[480px] w-96 max-w-96 relative z-1 flex flex-col justify-center items-center'}>
-                <Link href="https://chtr-ai.web.app/">
+                <a href="https://chtr-ai.web.app/">
                   <h2 className={inconsolata.className +
                     ' text-2xl font-bold border-solid border-primary border-[3px] ' +
                     'rounded-[10px] px-8 py-3 text-3xl bg-base-100 ' +
                     'shadow-[8px_8px_0] shadow-primary hover:bg-neutral' }>
                       chtr.ai
                   </h2>
-                </Link>
+                </a>
                 <p className='text-xl mt-12'>Built as a small proof of concept, Chtr.ai is chatroom app with a twist — all chatrooms include AI participants. Powered by OpenAI&apos;s ChatGPT, each bot has a personality and background, and they converse with eachother and human participants seamlessly.</p>
               </div>
             </div>

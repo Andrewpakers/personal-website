@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 export default function Content({ image, imgAlt = "", link, linkText = "View", text, imgClassName = "", className = "", btnClassName = "" }) {
     return (
         <div className={`flex flex-col items-center mt-3 gap-3 w-96 ` + className}>
@@ -19,7 +18,7 @@ export default function Content({ image, imgAlt = "", link, linkText = "View", t
             <button
             className={"btn btn-neutral " + btnClassName} 
              >
-                <Link href={link}>{linkText}</Link>
+                <a href={link}>{linkText}</a>
             </button>
         </div>
     );

@@ -49,7 +49,7 @@ export default async function Blog() {
     return (
         <div className="w-full max-w-[1250px] mt-10">
             <h1 className="text-4xl font-bold">Blog</h1>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap gap-10">
                 {renderedPosts}
             </div>
         </div>
