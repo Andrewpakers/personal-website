@@ -1,3 +1,0 @@
-# block OpenAI
-User-agent: GPTBot
-Disallow: /
