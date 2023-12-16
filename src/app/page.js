@@ -43,7 +43,10 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const posts = await getPosts();
-  const renderedPosts = posts.map((post, index) => {
+  const orderedPosts = posts.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+  });
+  const renderedPosts = orderedPosts.map((post, index) => {
       return (
           <div className=" mt-10 max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] h-[480px] w-96 p-6 max-w-96" key={index}>
               <Link href={`/blog/${post?.slug}`} className="flex flex-col gap-4 justify-center items-center">
@@ -65,11 +68,11 @@ export default async function Home() {
           <h1 className='sm:mt-28 sm:text-8xl text-6xl font-bold w-fit max-w-[600px] my-[24px]'>Hey there.<br />I&apos;m Andrew</h1>
           <span className={`sm:text-3xl sm:mt-4 inline-block text-xl max-w-[600px]`}>I&apos;m a writer, tech enthusiast, programmer, product marketer and creator of content and side projects.</span>
           <div className=' flex flex-wrap justify-start mt-5 gap-8 animate-fadeInLeft'>
-            <Link href="mailto:andrew@andrewakers.dev">
+            <a href="mailto:andrew@andrewakers.dev">
               <button className=' shadow-[-5px_5px_0] shadow-base-100 btn-md sm:btn-lg text-lg px-7 rounded-[10px] btn-ghost hover:btn-primary border-solid border-gray-400 border-[3px] '>
                 Email
               </button>
-            </Link>
+            </a>
             <a href="https://www.linkedin.com/in/andrewpakers/">
               <button className=' btn-md sm:btn-lg text-lg px-7 rounded-[10px] btn-neutral hover:btn-primary '>
                 LinkedIn
