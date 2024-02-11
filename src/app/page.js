@@ -129,7 +129,7 @@ export default async function Home() {
               <svg className='rounded-[10px] max-sm:w-[340px] w-96 h-[480px] z-0 absolute top-[17px] left-[15px]' fill="currentColor" role="img" aria-hidden="true" ><title>Diagonal A Dense</title><pattern id="DiagonalADense-pattern-10" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="currentColor"></rect><rect x="2" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="2" width="1" height="1" fill="currentColor"></rect><rect x="1" y="3" width="1" height="1" fill="currentColor"></rect><rect y="3" width="1" height="1" fill="currentColor"></rect><rect x="3" width="1" height="1" fill="currentColor"></rect><rect x="3" y="1" width="1" height="1" fill="currentColor"></rect><rect x="2" y="1" width="1" height="1" fill="currentColor"></rect></pattern><rect width="100%" height="100%" fill="url(#DiagonalADense-pattern-10)"></rect></svg>
               <div className={inconsolata.className + ' ' + ' max-sm:w-[340px] rounded-[10px] border-solid border-primary border-[2px] bg-[#e8e4e6] p-6 ' +
               'h-[480px] w-96 max-w-96 relative z-1 flex flex-col justify-start items-center pt-12'}>
-                <a href="https://chtr-ai.web.app/">
+                <a href="https://www.bcbahourtracker.com">
                   <h2 className={inconsolata.className +
                     ' text-2xl font-bold border-solid border-primary border-[3px] ' +
                     'rounded-[10px] px-8 py-3 text-3xl bg-base-100 ' +
@@ -137,7 +137,7 @@ export default async function Home() {
                       BCBA Hour Tracker
                   </h2>
                 </a>
-                <p className='text-xl mt-12'>BCBA Hour Tracker is a tool to help students studying to become board certified behavior analysts document and plan their fieldwork hours. In addition, it is used by supervisors to managed and track their supervisees.</p>
+                <p className='text-xl mt-12'><a href="https://www.bcbahourtracker.com" className=' link-info'>BCBA Hour Tracker</a> is a tool to help students studying to become board certified behavior analysts document and plan their fieldwork hours. In addition, it is used by supervisors to managed and track their supervisees.</p>
               </div>
             </div>
           </Item>
